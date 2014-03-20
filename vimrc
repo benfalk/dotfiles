@@ -49,6 +49,11 @@ map <F2> :NERDTreeToggle<CR>
 set splitbelow
 set splitright
 
+" search and syntax highlighting
+syntax enable
+set hlsearch
+set incsearch
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
