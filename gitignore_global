@@ -1,0 +1,6 @@
+# Global Git Ignore List
+# git config --global core.excludesfile ~/.gitignore_global
+
+*.swp
+.DS_Store
+

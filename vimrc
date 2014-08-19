@@ -2,13 +2,15 @@ set nocompatible
 filetype off
 
 let mapleader = ","
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'gmarik/vundle'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
