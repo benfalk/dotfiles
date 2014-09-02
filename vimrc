@@ -9,6 +9,8 @@ Plugin 'slim-template/vim-slim.git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gmarik/vundle'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 
@@ -41,6 +43,9 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " Fuzzy Finder mappings
 map <Leader>f :FufFile<CR>
+
+" Tab Over Son
+map <Leader><TAB> :tabn<CR>
 
 " Always show line numbers please
 set nu
