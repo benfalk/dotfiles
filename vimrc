@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -29,11 +30,24 @@ execute pathogen#infect()
 " Awesome colorscheme https://raw.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
 colorscheme distinguished
 
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+set ts=2 sw=2 et
+
 " Tabs
 set tabstop=2
 set expandtab
 set shiftwidth=2
 set autoindent
+
+set ttyfast
+
+" Remap escape to 'jj'
+inoremap jj <ESC>
+nmap tt :tabn<CR>
+nmap pt :tabp<CR>
+nmap qq :q<CR>
+nmap ss :w<CR>
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
