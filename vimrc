@@ -12,7 +12,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'L9'
-Plugin 'FuzzyFinder'
+Plugin 'kien/ctrlp.vim'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -35,6 +35,8 @@ set expandtab
 set shiftwidth=2
 set autoindent
 
+nnoremap ; :
+
 " Remap escape to 'jj'
 inoremap jj <ESC>
 "nmap tt :tabn<CR>
@@ -47,9 +49,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-
-" Fuzzy Finder mappings
-map <Leader>f :FufFile<CR>
 
 " Tab Over Son
 map <Leader><TAB> :tabn<CR>
