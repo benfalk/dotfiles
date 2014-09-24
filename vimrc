@@ -71,6 +71,9 @@ syntax enable
 set hlsearch
 set incsearch
 
+" quick way to un-highlight in normal mode
+nnoremap <CR> :noh<CR><CR>
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
