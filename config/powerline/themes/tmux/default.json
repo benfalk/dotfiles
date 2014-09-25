@@ -1,0 +1,27 @@
+{
+	"default_module": "powerline.segments.common",
+	"segments": {
+		"right": [
+      {
+        "name": "cwd"
+      },
+      {
+        "name": "branch"
+      },
+			{
+				"name": "date",
+				"before": ""
+			},
+			{
+				"name": "date",
+				"args": {
+					"format": "%H:%M",
+					"istime": false
+				}
+			},
+			{
+				"name": "hostname"
+			}
+		]
+	}
+}
