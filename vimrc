@@ -18,6 +18,8 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
