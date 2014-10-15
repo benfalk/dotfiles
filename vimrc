@@ -70,6 +70,10 @@ map <F2> :NERDTreeToggle<CR>
 set splitbelow
 set splitright
 
+" I really like following the 80 columns rule with markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.markdown setlocal textwidth=80
+
 " search and syntax highlighting
 syntax enable
 set hlsearch
