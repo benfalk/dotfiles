@@ -24,6 +24,7 @@ Plugin 'jimenezrick/vimerl'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-endwise'
+Plugin 'mtth/scratch.vim'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -39,6 +40,10 @@ execute pathogen#infect()
 
 " Awesome colorscheme https://raw.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
 colorscheme distinguished
+
+" Scratchpad Niceness
+let g:scratch_autohide = 1
+map <Leader>S :Scratch<CR>
 
 " Tabs
 set tabstop=2
