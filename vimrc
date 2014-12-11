@@ -51,6 +51,9 @@ set expandtab
 set shiftwidth=2
 set autoindent
 
+" Pressing ,S will toggle and untoggle spell checking
+map <leader>S :setlocal spell!<cr>
+
 nnoremap ; :
 
 " Remap escape to 'jj'
