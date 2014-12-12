@@ -43,7 +43,7 @@ colorscheme distinguished
 
 " Scratchpad Niceness
 let g:scratch_autohide = 1
-map <Leader>S :Scratch<CR>
+map <Leader>R :Scratch<CR>
 
 " Tabs
 set tabstop=2
