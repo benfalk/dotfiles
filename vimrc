@@ -45,6 +45,12 @@ colorscheme distinguished
 let g:scratch_autohide = 1
 map <Leader>R :Scratch<CR>
 
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+
 " Tabs
 set tabstop=2
 set expandtab
