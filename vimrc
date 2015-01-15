@@ -60,6 +60,9 @@ set autoindent
 " Pressing ,S will toggle and untoggle spell checking
 map <leader>S :setlocal spell!<cr>
 
+" Toggle wordwrap on and off
+map <leader>w :setlocal wrap!<cr>
+
 nnoremap ; :
 
 " Remap escape to 'jj'
