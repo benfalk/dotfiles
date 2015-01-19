@@ -25,7 +25,6 @@ Plugin 'kylef/apiblueprint.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-endwise'
 Plugin 'mtth/scratch.vim'
-Plugin 'vim-scripts/ZoomWin'
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
