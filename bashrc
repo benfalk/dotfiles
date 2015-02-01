@@ -123,3 +123,5 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
 fi
 
 HISTIGNORE='history*'
+
+alias ll="ls -lhA"
