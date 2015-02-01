@@ -89,6 +89,11 @@ inoremap jj <ESC>
 nmap qq :q<CR>
 "nmap ww :w<CR>
 
+" Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
+" vim file (it will prompt for sudo password when writing)
+" http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/96492#96492
+cmap w!! %!sudo tee > /dev/null %
+
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
