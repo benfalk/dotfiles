@@ -26,7 +26,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-endwise'
 Plugin 'mtth/scratch.vim'
 Plugin 'rhysd/clever-f.vim'
+Plugin 'benfalk/vim-eunit'
 Plugin 'junegunn/vim-github-dashboard'
+
+call vundle#end()
 
 filetype on
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -99,6 +102,12 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" eunit.vim mappings
+map <Leader>et :call EunitCurrentFile()<CR>
+map <Leader>es :call EunitNearestTest()<CR>
+map <Leader>el :call EunitLastCommand()<CR>
+map <Leader>ea :call EunitTestAll()<CR>
 
 " Tab Over Son
 map <Leader><TAB> :tabn<CR>
