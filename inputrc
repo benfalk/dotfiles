@@ -1,0 +1,12 @@
+set editing-mode vi
+set keymap vi
+
+$if mode=vi
+  set keymap vi-insert
+  "jj": vi-movement-mode
+$endif
+
+# for Ctrl+l clear screen
+$if Bash
+"\C-l": "\e\C-la"
+$endif
