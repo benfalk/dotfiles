@@ -3,6 +3,7 @@ set keymap vi
 
 $if mode=vi
   set keymap vi-insert
+  # Lets you press 'jj' really fast to get out of 'insert mode'
   "jj": vi-movement-mode
 $endif
 
