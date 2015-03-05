@@ -28,6 +28,7 @@ Plugin 'mtth/scratch.vim'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'benfalk/vim-eunit'
 Plugin 'junegunn/vim-github-dashboard'
+Plugin 'Floobits/floobits-vim'
 
 call vundle#end()
 
