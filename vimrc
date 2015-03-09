@@ -29,6 +29,7 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'benfalk/vim-eunit'
 Plugin 'junegunn/vim-github-dashboard'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
 
