@@ -30,6 +30,7 @@ Plugin 'benfalk/vim-eunit'
 Plugin 'junegunn/vim-github-dashboard'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
