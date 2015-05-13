@@ -32,6 +32,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'benmills/vimux'
+Plugin 'tpope/vim-projectionist'
 
 call vundle#end()
 
