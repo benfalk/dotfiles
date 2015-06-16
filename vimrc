@@ -54,6 +54,22 @@ colorscheme distinguished
 " No clutter please, I need to focus
 let g:goyo_width = 120
 map <Leader>g :Goyo<CR>
+function! s:goyo_enter()
+  if exists('$TMUX')
+    silent !tmux set status off
+    silent !tmux resize-pane -Z
+  endif
+endfunction
+
+function! s:goyo_leave()
+  if exists('$TMUX')
+    silent !tmux set status on
+    silent !tmux resize-pane -Z
+  endif
+endfunction
+
+autocmd User GoyoEnter nested call <SID>goyo_enter()
+autocmd User GoyoLeave nested call <SID>goyo_leave()
 
 " Scratchpad Niceness
 let g:scratch_autohide = 1
