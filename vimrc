@@ -32,6 +32,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-projectionist'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
@@ -49,6 +50,10 @@ execute pathogen#infect()
 
 " Awesome colorscheme https://raw.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
 colorscheme distinguished
+
+" No clutter please, I need to focus
+let g:goyo_width = 120
+map <Leader>g :Goyo<CR>
 
 " Scratchpad Niceness
 let g:scratch_autohide = 1
