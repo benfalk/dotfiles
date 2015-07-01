@@ -1,1 +1,1 @@
-
+alias freebase='git rebase'
