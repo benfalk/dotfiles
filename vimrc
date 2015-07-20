@@ -33,6 +33,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/goyo.vim'
+Plugin 'BjRo/vim-extest'
 
 call vundle#end()
 
@@ -133,6 +134,11 @@ map <Leader>et :call EunitCurrentFile()<CR>
 map <Leader>es :call EunitNearestTest()<CR>
 map <Leader>el :call EunitLastCommand()<CR>
 map <Leader>ea :call EunitTestAll()<CR>
+
+" elixir mx test mappings
+map <leader>mt :ExTestRunFile<CR>
+map <leader>ms :ExTestRunTest<CR>
+map <leader>ml :ExTestRunLast<CR>
 
 " Tab Over Son
 map <Leader><TAB> :tabn<CR>
