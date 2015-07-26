@@ -34,6 +34,7 @@ Plugin 'benmills/vimux'
 Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/goyo.vim'
 Plugin 'BjRo/vim-extest'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
