@@ -82,7 +82,7 @@ nnoremap <Leader>fw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore=db/*seeds/\ --ignore=spec/*.yml\ --ignore=*.csv\ --ignore=tmp/
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -109,6 +109,7 @@ map <leader>S :setlocal spell!<cr>
 " Toggle wordwrap on and off
 map <leader>w :setlocal wrap!<cr>
 
+" clever-f does a better job and I hate pressing shift so much
 nnoremap ; :
 
 " Remap escape to 'jj'
