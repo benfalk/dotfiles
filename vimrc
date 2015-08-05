@@ -141,6 +141,10 @@ map <leader>mt :ExTestRunFile<CR>
 map <leader>ms :ExTestRunTest<CR>
 map <leader>ml :ExTestRunLast<CR>
 
+" Copy and paste a little easier from global buffer
+map <leader>y "+y
+map <leader>p "+p
+
 " Tab Over Son
 map <Leader><TAB> :tabn<CR>
 
