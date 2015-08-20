@@ -76,6 +76,10 @@ autocmd User GoyoLeave nested call <SID>goyo_leave()
 let g:scratch_autohide = 1
 map <Leader>R :Scratch<CR>
 
+" Strait to the githubs!
+map <leader>G :Gbrowse<CR>
+vmap <leader>G :Gbrowse<CR>
+
 " grep word under cursor
 nnoremap <Leader>fw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
