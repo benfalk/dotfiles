@@ -6,9 +6,5 @@ $if mode=vi
   set keymap vi-insert
   # Lets you press 'jj' really fast to get out of 'insert mode'
   "jj": vi-movement-mode
-$endif
-
-# for Ctrl+l clear screen
-$if Bash
-"\C-l": "\e\C-la"
+  Control-l: clear-screen
 $endif
