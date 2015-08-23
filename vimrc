@@ -128,22 +128,59 @@ nmap qq :q<CR>
 " http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/96492#96492
 cmap w!! %!sudo tee > /dev/null %
 
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" Test Suite Mappings
+map <Leader>t :call TestCurrentFile()<CR>
+map <Leader>s :call TestNearest()<CR>
+map <Leader>l :call RunLastTest()<CR>
+map <Leader>a :call TestAll()<CR>
 
-" eunit.vim mappings
-map <Leader>et :call EunitCurrentFile()<CR>
-map <Leader>es :call EunitNearestTest()<CR>
-map <Leader>el :call EunitLastCommand()<CR>
-map <Leader>ea :call EunitTestAll()<CR>
+function! TestCurrentFile()
+  if &filetype=="ruby"
+    execute ":call RunCurrentSpecFile()"
+  elseif &filetype=="erlang"
+    execute ":call EunitCurrentFile()"
+  elseif &filetype=="elixir"
+    execute ":ExTestRunFile"
+  else
+    echoe "Unkown filetype to test [".&filetype."]"
+  end
+endfunction
 
-" elixir mx test mappings
-map <leader>mt :ExTestRunFile<CR>
-map <leader>ms :ExTestRunTest<CR>
-map <leader>ml :ExTestRunLast<CR>
+function! TestNearest()
+  if &filetype=="ruby"
+    execute ":call RunNearestSpec()"
+  elseif &filetype=="erlang"
+    execute ":call EunitNearestTest()"
+  elseif &filetype=="elixir"
+    execute ":ExTestRunTest"
+  else
+    echoe "Unkown filetype to test [".&filetype."]"
+  end
+endfunction
+
+function! RunLastTest()
+  if &filetype=="ruby"
+    execute ":call RunLastSpec()"
+  elseif &filetype=="erlang"
+    execute ":call EunitLastCommand()"
+  elseif &filetype=="elixir"
+    execute ":ExTestRunLast"
+  else
+    echoe "Unkown filetype to test [".&filetype."]"
+  end
+endfunction
+
+function! TestAll()
+  if &filetype=="ruby"
+    execute ":call RunAllSpecs()"
+  elseif &filetype=="erlang"
+    execute ":call EunitTestAll()"
+  elseif &filetype=="elixir"
+    execute ":!mix test"
+  else
+    echoe "Unkown filetype to test [".&filetype."]"
+  end
+endfunction
 
 " Copy and paste a little easier from global buffer
 map <leader>y "+y
