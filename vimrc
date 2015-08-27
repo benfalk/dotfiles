@@ -54,7 +54,7 @@ colorscheme distinguished
 
 " No clutter please, I need to focus
 let g:goyo_width = 120
-map <Leader>g :Goyo<CR>
+map <Leader>G :Goyo<CR>
 function! s:goyo_enter()
   if exists('$TMUX')
     silent !tmux set status off
@@ -77,8 +77,8 @@ let g:scratch_autohide = 1
 map <Leader>R :Scratch<CR>
 
 " Strait to the githubs!
-map <leader>G :Gbrowse<CR>
-vmap <leader>G :Gbrowse<CR>
+map <leader>g :Gbrowse<CR>
+vmap <leader>g :Gbrowse<CR>
 
 " grep word under cursor
 nnoremap <Leader>fw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
