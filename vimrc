@@ -78,6 +78,7 @@ map <Leader>R :Scratch<CR>
 
 " Strait to the githubs!
 map <leader>g :Gbrowse<CR>
+map <leader>b :Gblame<CR>
 vmap <leader>g :Gbrowse<CR>
 
 " grep word under cursor
