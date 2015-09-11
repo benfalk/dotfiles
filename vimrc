@@ -35,6 +35,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'BjRo/vim-extest'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
+Plugin 'elzr/vim-json'
 
 call vundle#end()
 
