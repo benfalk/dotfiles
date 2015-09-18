@@ -122,9 +122,7 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
-HISTIGNORE="history:?"
+HISTIGNORE="history"
 export EDITOR=vim
-
-alias \?="history | grep $1"
 
 alias ll="ls -lhA"
