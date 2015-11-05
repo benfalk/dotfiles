@@ -36,6 +36,7 @@ Plugin 'BjRo/vim-extest'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'elzr/vim-json'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
