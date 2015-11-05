@@ -9,14 +9,16 @@ windows = `tmux list-windows -t #{session} | grep -o '^[^:]*'`.split("\n").map(&
 window = windows.max+1
 
 Dir.chdir '/home/bfalk/Projects/chef-repo/'
-results = `bundle exec knife search #{term} -a ipaddress -a uptime -a uptime_seconds`.split("\n\n")
+results = `bundle exec knife search #{term} -a run_list -a ipaddress -a uptime -a uptime_seconds`.split("\n\n")
 results.shift
 results.sort_by! { |r| r.match(/uptime_seconds:\W*(\d*)/)[1].to_i }
 
 results.each do |result|
   ip = result.match(/^\W*ipaddress:\W*([\d\.]*)/)[1]
+  uptime = result.match(/uptime:.*$/).to_s.gsub(/\W{2,}/, ' ')
+  role = result.match(/run_list:.*$/).to_s.gsub(/\W{2,}/, ' ')
   puts "[#{ip}]"
   puts "command=/home/bfalk/.config/Mutate/scripts/knife/open.rb #{session}:#{window} #{ip}"
   puts 'icon=/home/bfalk/.config/Mutate/scripts/knife/server.png'
-  puts "subtext=#{result.match(/uptime:.*$/)}"
+  puts "subtext=#{role} | #{uptime}"
 end
