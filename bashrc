@@ -126,3 +126,5 @@ export HISTIGNORE="history*:histg*"
 export EDITOR=vim
 
 alias ll="ls -lhA"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
