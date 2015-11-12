@@ -19,7 +19,7 @@ fi
 #source "/home/bfalk/.fzf/shell/key-bindings.bash"
 
 fh(){
-  phrase=$(history | fzf-tmux -d 15 | sed 's/ *[0-9]* *//')
+  phrase=$(history | fzf-tmux -e -d 15 | sed 's/ *[0-9]* *//')
   if [ -z "$phrase" ]; then
     return
   fi
@@ -27,3 +27,5 @@ fh(){
   eval $phrase
   return $?
 }
+
+bind '"\C-_":"fh\n"'
