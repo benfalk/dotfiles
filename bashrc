@@ -128,3 +128,5 @@ export EDITOR=vim
 alias ll="ls -lhA"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. ~/.dotfiles/z.sh
