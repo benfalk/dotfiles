@@ -52,6 +52,11 @@ set t_Co=256
 " Vim Pathogen Package Manager
 execute pathogen#infect()
 
+" I'm tired of looking at these, no more please
+set nobackup
+set nowb
+set noswapfile
+
 " Awesome colorscheme https://raw.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim
 colorscheme distinguished
 
