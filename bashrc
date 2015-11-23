@@ -131,6 +131,9 @@ export EDITOR=vim
 
 alias ll="ls -lhA"
 
+# Remove all untracked files
+git config --global alias.purge "clean -fd"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 . ~/.dotfiles/z.sh
