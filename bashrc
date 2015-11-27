@@ -134,6 +134,11 @@ alias ll="ls -lhA"
 # Remove all untracked files
 git config --global alias.purge "clean -fd"
 
+# Nice git shortness
+git config --global alias.co "checkout"
+git config --global alias.br "branch"
+git config --global alias.st "status"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 . ~/.dotfiles/z.sh
