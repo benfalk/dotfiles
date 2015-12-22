@@ -117,7 +117,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export TERM=xterm-256color
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Get powerline into the bash terminal
