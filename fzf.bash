@@ -28,4 +28,5 @@ fh(){
   return $?
 }
 
+# Ctrl + "?"
 bind '"\C-_":"fh\n"'
