@@ -36,6 +36,7 @@ Plugin 'BjRo/vim-extest'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'rust-lang/rust.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 
@@ -90,6 +91,13 @@ vmap <leader>g :Gbrowse<CR>
 
 " grep word under cursor
 nnoremap <Leader>fw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" no more turd tmp files in projects
+set backupdir=/Users/rickb/tmp
+set directory=/Users/rickb/tmp
+set nobackup
+set nowritebackup 
+set noswapfile
 
 " The Silver Searcher
 if executable('ag')
