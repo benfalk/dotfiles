@@ -36,6 +36,7 @@ Plugin 'BjRo/vim-extest'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
