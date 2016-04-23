@@ -118,6 +118,8 @@ function! TrimWhiteSpace()
 endfunction
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+
 " Tabs
 set tabstop=2
 set expandtab
