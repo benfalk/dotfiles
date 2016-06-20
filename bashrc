@@ -142,3 +142,6 @@ git config --global alias.st "status"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 . ~/.dotfiles/z.sh
+
+export NVM_DIR="/home/bfalk/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

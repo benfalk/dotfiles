@@ -38,6 +38,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'elmcast/elm-vim'
 
 call vundle#end()
 
@@ -204,6 +205,11 @@ endfunction
 " Copy and paste a little easier from global buffer
 map <leader>y "+y
 map <leader>p "+p
+
+let g:elm_setup_keybindings = 0
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 " Tab Over Son
 map <Leader><TAB> :tabn<CR>
