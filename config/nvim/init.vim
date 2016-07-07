@@ -102,6 +102,16 @@ vmap <leader>g :Gbrowse<CR>
 " clever-f does a better job and I hate pressing shift so much
 nnoremap ; :
 
+" I really like following the 80 columns rule with markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.markdown setlocal textwidth=80
+
+" Pressing ,S will toggle and untoggle spell checking
+map <leader>S :setlocal spell!<cr>
+
+" Toggle wordwrap on and off
+map <leader>w :setlocal wrap!<cr>
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
