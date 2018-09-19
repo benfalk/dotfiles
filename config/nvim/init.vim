@@ -34,6 +34,9 @@ call plug#begin()
   " Great git plugin
   Plug 'tpope/vim-fugitive'
 
+  " Vue Code Highlighting
+  Plug 'posva/vim-vue'
+
   " elm language support
   Plug 'elmcast/elm-vim'
 
