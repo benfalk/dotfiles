@@ -15,6 +15,7 @@ call plug#begin()
   " elixir syntax
   Plug 'elixir-lang/vim-elixir'
   Plug 'slashmili/alchemist.vim'
+  Plug 'mhinz/vim-mix-format'
 
   " markdown highlighting
   Plug 'plasticboy/vim-markdown'
@@ -136,6 +137,9 @@ nnoremap ; :
 " On saving a file lint it and automatically open error window
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
+
+" Automatically format Elixir Files
+let g:mix_format_on_save = 1
 
 " No swaps
 set nobackup
