@@ -24,6 +24,9 @@ def to_item(repo):
   )
 
 def handleQuery(query):
-  if query.isTriggered and len(query.string) > 0:
+  if not query.isTriggered:
+      return None
+
+  if len(query.string) > 0:
     return [to_item(query.string)]
   return [Item(icon= __icon__, text='Eve-of-Darkness Daoc')]

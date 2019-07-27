@@ -15,7 +15,10 @@ __dependencies__ = ['aspell']
 __icon__ = path.dirname(__file__) + '/icons/sp.png'
 
 def handleQuery(query):
-    if query.isTriggered and len(query.string) < 3:
+    if not query.isTriggered:
+        return None
+
+    if len(query.string) < 3:
         return [Item(id='spell', icon=__icon__, text='Spell Better')]
 
     proc = Popen(["aspell", "-a"], stdout=PIPE, stdin=PIPE)
