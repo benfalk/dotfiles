@@ -1,6 +1,7 @@
 call plug#begin()
   " A better visual status line
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " Move back and forth from tmux panes and vim panes
   Plug 'christoomey/vim-tmux-navigator'
@@ -34,6 +35,9 @@ call plug#begin()
 
   " Great git plugin
   Plug 'tpope/vim-fugitive'
+
+  " Rust Support
+  Plug 'rust-lang/rust.vim'
 
   " Vue Code Highlighting
   Plug 'posva/vim-vue'
@@ -102,7 +106,8 @@ augroup END
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme distinguished
+colorscheme jellybeans
+let g:airline_theme='molokai'
 
 " Always show statusline
 set laststatus=2
@@ -140,6 +145,7 @@ let g:neomake_open_list = 2
 
 " Automatically format Elixir Files
 let g:mix_format_on_save = 1
+
 
 " No swaps
 set nobackup
