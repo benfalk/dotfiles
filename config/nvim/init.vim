@@ -38,6 +38,8 @@ call plug#begin()
 
   " Rust Support
   Plug 'rust-lang/rust.vim'
+  Plug 'racer-rust/vim-racer'
+  Plug 'sebastianmarkow/deoplete-rust'
 
   " Vue Code Highlighting
   Plug 'posva/vim-vue'
@@ -66,6 +68,9 @@ let g:airline_powerline_fonts = 1
 
 let g:OmniSharp_server_path = '/home/bfalk/omnisharp.http-linux-x64/omnisharp/OmniSharp.exe'
 let g:OmniSharp_server_use_mono = 1
+
+let g:deoplete#sources#rust#racer_binary='/home/bfalk/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/bfalk/rust-1.38.0/src'
 
 augroup omnisharp_commands
   autocmd!
@@ -102,6 +107,8 @@ augroup omnisharp_commands
   "autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
   "autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
 augroup END
+
+let g:racer_experimental_completer = 1
 
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
