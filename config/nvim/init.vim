@@ -23,13 +23,16 @@ call plug#begin()
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " dynamic fuzzy file-find and open
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
 
   " completes ruby and elixir statements automatically
   Plug 'tpope/vim-endwise'
 
   " Extra Language Linting
   Plug 'neomake/neomake'
+
+  " Elixir Formatting w/o Thinking
+  Plug 'mhinz/vim-mix-format'
 call plug#end()
 
 syntax enable
@@ -54,6 +57,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Always show statusline
 set laststatus=2
+
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
 
 let mapleader = ","
 
@@ -97,6 +103,18 @@ autocmd! BufWritePost * Neomake
 
 " Always show line numbers please
 set nu
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore=db/*seeds/\ --ignore=spec/*.yml\ --ignore=*.csv\ --ignore=tmp/
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" Conquer of Completion Config """""""""""""""""""""""""""""
