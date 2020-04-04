@@ -25,14 +25,20 @@ call plug#begin()
   " dynamic fuzzy file-find and open
   Plug 'ctrlpvim/ctrlp.vim'
 
+  " Better Searching
+  Plug 'mileszs/ack.vim'
+
+  " Moving at the speed of thought
+  Plug 'easymotion/vim-easymotion'
+
   " completes ruby and elixir statements automatically
   Plug 'tpope/vim-endwise'
 
   " Extra Language Linting
   Plug 'neomake/neomake'
 
-  " Elixir Formatting w/o Thinking
-  Plug 'mhinz/vim-mix-format'
+  " Format all the code!
+  Plug 'sbdchd/neoformat'
 call plug#end()
 
 syntax enable
@@ -58,13 +64,18 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Always show statusline
 set laststatus=2
 
-let g:mix_format_on_save = 1
-let g:mix_format_silent_errors = 1
+" let g:mix_format_on_save = 1
+" let g:mix_format_silent_errors = 1
 
 let mapleader = ","
 
 map <leader>y "+y
 map <leader>p "+p
+
+" Format my code!
+map <leader>f :Neoformat<CR>
+
+nnoremap <Leader>a :Ack!<Space>
 
 map <F2> :NERDTreeToggle<CR>
 
@@ -101,6 +112,10 @@ au BufRead,BufNewFile *.markdown setlocal textwidth=80
 " On saving a file lint it
 autocmd! BufWritePost * Neomake
 
+" On save of elixir file format it
+autocmd! BufWritePre *.ex undojoin | Neoformat
+autocmd! BufWritePre *.exs undojoin | Neoformat
+
 " Always show line numbers please
 set nu
 
@@ -114,6 +129,9 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " It says ack ... but really it's ag ;)
+  let g:ackprg = 'ag --vimgrep --ignore=spec/*.yml'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,7 +145,8 @@ set hidden
 let g:coc_global_extensions=[
       \ 'coc-omnisharp',
       \ 'coc-solargraph',
-      \ 'coc-elixir'
+      \ 'coc-elixir',
+      \ 'coc-rls',
       \ ]
 
 " Give more space for displaying messages.
