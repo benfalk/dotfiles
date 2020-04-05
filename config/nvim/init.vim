@@ -11,6 +11,7 @@ call plug#begin()
 
   " Tricked out vim icons
   Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
   " One Language Highlighter to rule them all
   Plug 'sheerun/vim-polyglot'
@@ -19,11 +20,14 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
 
   " Filebar on the side with git status of changes
-  Plug 'scrooloose/nerdtree'
+  Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " dynamic fuzzy file-find and open
   Plug 'ctrlpvim/ctrlp.vim'
+
+  " Bookmark places in source
+  Plug 'MattesGroeger/vim-bookmarks'
 
   " Better Searching
   Plug 'mileszs/ack.vim'
@@ -52,6 +56,10 @@ let g:airline_theme='molokai'
 " Let's see those sexy powerline fonts!
 let g:airline_powerline_fonts = 1
 
+let g:NERDTreeExtensionHighlightColor = {} "this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['ex'] = '834F79'
+let g:NERDTreeExtensionHighlightColor['exs'] = '834F79'
+
 " I don't care to know what branch I'm on or what the encoding is normally
 " I also have a good handle on what mode I'm in :+1:
 let g:airline_section_a = ''
@@ -64,11 +72,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Always show statusline
 set laststatus=2
 
-" let g:mix_format_on_save = 1
-" let g:mix_format_silent_errors = 1
-
 let mapleader = ","
 
+" Leader y and p to work with OS clipboard
 map <leader>y "+y
 map <leader>p "+p
 
@@ -77,7 +83,9 @@ map <leader>f :Neoformat<CR>
 
 nnoremap <Leader>a :Ack!<Space>
 
+" Muscle memory wants to press F2
 map <F2> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " qq - get me out of here reeeee
 nmap qq :q<CR>
@@ -90,6 +98,9 @@ map <leader>S :setlocal spell!<cr>
 
 " Toggle wordwrap on and off
 map <leader>w :setlocal wrap!<cr>
+
+" Toggle folding all code that hasn't changed
+map <leader>gf :GitGutterFold<cr>
 
 " quick way to un-highlight in normal mode
 nnoremap <CR> :noh<CR><CR>
@@ -108,6 +119,10 @@ set autoindent
 " I really like following the 80 columns rule with markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.markdown setlocal textwidth=80
+
+" Bookmarks per working dir
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
 
 " On saving a file lint it
 autocmd! BufWritePost * Neomake
