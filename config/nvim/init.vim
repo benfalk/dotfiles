@@ -56,9 +56,17 @@ let g:airline_theme='molokai'
 " Let's see those sexy powerline fonts!
 let g:airline_powerline_fonts = 1
 
-let g:NERDTreeExtensionHighlightColor = {} "this line is needed to avoid error
+" Need to init these so they don't blow up
+let g:NERDTreeExtensionHighlightColor = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+
+" Elixir is light purple
 let g:NERDTreeExtensionHighlightColor['ex'] = '834F79'
 let g:NERDTreeExtensionHighlightColor['exs'] = '834F79'
+
+" CSharp is an aqua
+let g:NERDTreeExtensionHighlightColor['cs'] = '3AFFDB'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs'] = ''
 
 " I don't care to know what branch I'm on or what the encoding is normally
 " I also have a good handle on what mode I'm in :+1:
