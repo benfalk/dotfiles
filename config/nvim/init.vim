@@ -110,6 +110,11 @@ map <leader>w :setlocal wrap!<cr>
 " Toggle folding all code that hasn't changed
 map <leader>gf :GitGutterFold<cr>
 
+" Bookmark default bindings mess with me
+let g:bookmark_no_default_key_mappings = 1
+map <leader>mm :BookmarkToggle<cr>
+map <leader>ma :BookmarkShowAll<cr>
+
 " quick way to un-highlight in normal mode
 nnoremap <CR> :noh<CR><CR>
 
