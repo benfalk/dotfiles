@@ -1,15 +1,16 @@
 """
     Spell Better
 """
-from albertv0 import *
+from albert import *
 from subprocess import Popen, PIPE
 from os import path
 import re
 
 __iid__ = 'PythonInterface/v0.1'
 __prettyname__ = 'Spell'
-__version__ = '1.0'
-__trigger__ = 'sp '
+__version__ = '0.1.0'
+__title__ = 'Spell'
+__triggers__ = 'sp '
 __author__ = 'Ben Falk'
 __dependencies__ = ['aspell']
 __icon__ = path.dirname(__file__) + '/icons/sp.png'
