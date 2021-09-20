@@ -9,6 +9,10 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
+  " Filebar on the side with git status of changes
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+
   " Tricked out vim icons
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -18,10 +22,6 @@ call plug#begin()
 
   " show in the line-number gutter git line status
   Plug 'airblade/vim-gitgutter'
-
-  " Filebar on the side with git status of changes
-  Plug 'preservim/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " dynamic fuzzy file-find and open
   Plug 'ctrlpvim/ctrlp.vim'
@@ -137,6 +137,11 @@ au BufRead,BufNewFile *.markdown setlocal textwidth=80
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 
+" Run a markdown request in a side-by split
+" Someday I'll make this a legit tool...
+" https://github.com/benfalk/req_md
+map <leader>rr :vnew \| 0read !cat # \| req_md \| jq .<cr>:set filetype=json<cr>gg
+
 " On saving a file lint it
 autocmd! BufWritePost * Neomake
 
@@ -174,11 +179,8 @@ let g:coc_global_extensions=[
       \ 'coc-omnisharp',
       \ 'coc-solargraph',
       \ 'coc-elixir',
-      \ 'coc-rls',
+      \ 'coc-rust-analyzer',
       \ ]
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
