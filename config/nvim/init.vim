@@ -13,6 +13,19 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
+  " Better Syntax Highlighting
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  " I want to see the universe
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+
+  " And what the city to pay for it all
+  Plug 'fannheyward/telescope-coc.nvim'
+
+  " And I want it to be blinding fast
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
   " Tricked out vim icons
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -22,9 +35,6 @@ call plug#begin()
 
   " show in the line-number gutter git line status
   Plug 'airblade/vim-gitgutter'
-
-  " dynamic fuzzy file-find and open
-  Plug 'ctrlpvim/ctrlp.vim'
 
   " Bookmark places in source
   Plug 'MattesGroeger/vim-bookmarks'
@@ -142,6 +152,10 @@ let g:bookmark_auto_save = 1
 " https://github.com/benfalk/req_md
 map <leader>rr :vnew \| 0read !cat # \| req_md \| jq .<cr>:set filetype=json<cr>gg
 
+" Farewell old friend, you won't be forgotten
+map <C-P> :Telescope find_files<cr>
+map <leader>gg :Telescope live_grep<cr>
+
 " On saving a file lint it
 autocmd! BufWritePost * Neomake
 
@@ -157,15 +171,50 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore=db/*seeds/\ --ignore=spec/*.yml\ --ignore=*.csv\ --ignore=tmp/
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
   " It says ack ... but really it's ag ;)
   let g:ackprg = 'ag --vimgrep --ignore=spec/*.yml'
 endif
+
+" Better Syntax Highlighting
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- List of parsers to ignore installing
+  ignore_install = {},
+  highlight = {
+    -- false will disable the whole extension
+    enable = true,
+
+
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+" Telescope Setup
+lua <<EOF
+  require('telescope').setup{
+    defaults = {
+      mappings = {
+        i = {
+          ["<C-k>"] = "move_selection_previous",
+          ["<C-j>"] = "move_selection_next",
+        },
+      },
+    }
+  }
+  require('telescope').load_extension('fzf')
+  require('telescope').load_extension('coc')
+EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" Conquer of Completion Config """""""""""""""""""""""""""""
@@ -214,7 +263,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr :Telescope coc references<cr>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
