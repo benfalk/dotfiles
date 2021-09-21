@@ -1,3 +1,7 @@
+" the color is true
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+
 call plug#begin()
   " Language Server Workhorse
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -53,6 +57,9 @@ call plug#begin()
 
   " Format all the code!
   Plug 'sbdchd/neoformat'
+
+  " Mostly for GitBlame
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 syntax enable
@@ -84,9 +91,6 @@ let g:airline_section_a = ''
 let g:airline_section_b = ''
 let g:airline_section_y = ''
 
-" the color is true
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 " Always show statusline
 set laststatus=2
 
@@ -116,6 +120,9 @@ map <leader>S :setlocal spell!<cr>
 
 " Toggle wordwrap on and off
 map <leader>w :setlocal wrap!<cr>
+
+" Those who don't know history are doomed to repeat it
+map <leader>b :Git blame<cr>
 
 " Toggle folding all code that hasn't changed
 map <leader>gf :GitGutterFold<cr>
