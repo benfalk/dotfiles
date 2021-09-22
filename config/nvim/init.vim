@@ -157,7 +157,21 @@ let g:bookmark_auto_save = 1
 " Run a markdown request in a side-by split
 " Someday I'll make this a legit tool...
 " https://github.com/benfalk/req_md
-map <leader>rr :vnew \| 0read !cat # \| req_md \| jq .<cr>:set filetype=json<cr>gg
+function! ReqMd()
+  let l:filename = expand('%')
+  let l:line_number = line('.')
+  let l:arg = l:filename . ":" . l:line_number
+  let l:output = system('req_md ' . l:arg . ' | jq .')
+  vnew
+  call append(0, l:output)
+  execute '%s/\%x00/\r/g'
+  normal gg
+  set filetype=json
+  set buftype=nofile
+  set noswapfile
+endfunction
+
+map <leader>rr :call ReqMd()<cr>
 
 " Farewell old friend, you won't be forgotten
 map <C-P> :Telescope find_files<cr>
