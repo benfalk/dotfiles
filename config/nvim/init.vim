@@ -230,6 +230,10 @@ EOF
 " TextEdit might fail if hidden is not set.
 set hidden
 
+" Keeps easy motion from freaking out linters
+autocmd User EasyMotionPromptBegin silent! CocDisable
+autocmd User EasyMotionPromptEnd silent! CocEnable
+
 " All of the extensions I want automatically installed
 let g:coc_global_extensions=[
       \ 'coc-omnisharp',
