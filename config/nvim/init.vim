@@ -32,6 +32,7 @@ call plug#begin()
 
   " Tricked out vim icons
   Plug 'ryanoasis/vim-devicons'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
   " One Language Highlighter to rule them all
