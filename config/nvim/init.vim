@@ -30,6 +30,9 @@ call plug#begin()
   " And I want it to be blinding fast
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
+  " Simple Tab Line Look
+  Plug 'seblj/nvim-tabline'
+
   " Tricked out vim icons
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
@@ -104,8 +107,6 @@ map <leader>p "+p
 " Format my code!
 map <leader>f :Neoformat<CR>
 
-nnoremap <Leader>a :Ack!<Space>
-
 " Muscle memory wants to press F2
 map <F2> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
@@ -124,6 +125,10 @@ map <leader>w :setlocal wrap!<cr>
 
 " Those who don't know history are doomed to repeat it
 map <leader>b :Git blame<cr>
+
+" Back and forth through tabs
+map <silent>{ :tabprevious<cr>
+map <silent>} :tabnext<cr>
 
 " Toggle folding all code that hasn't changed
 map <leader>gf :GitGutterFold<cr>
@@ -166,6 +171,7 @@ function! ReqMd()
   vnew
   call append(0, l:output)
   execute '%s/\%x00/\r/g'
+  execute 'g/^$/d'
   normal gg
   set filetype=json
   set buftype=nofile
@@ -219,6 +225,20 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+EOF
+
+" Simple Tabs
+lua <<EOF
+require('tabline').setup{
+    no_name = '[No Name]',    -- Name for buffers with no name
+    modified_icon = '',      -- Icon for showing modified buffer
+    close_icon = '',         -- Icon for closing tab with mouse
+    separator = "▌",          -- Separator icon on the left side
+    padding = 3,              -- Prefix and suffix space
+    color_all_icons = false,  -- Color devicons in active and inactive tabs
+    always_show_tabs = false, -- Always show tabline
+    right_separator = false,  -- Show right separator on the last tab
 }
 EOF
 
