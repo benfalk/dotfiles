@@ -64,12 +64,17 @@ call plug#begin()
 
   " Mostly for GitBlame
   Plug 'tpope/vim-fugitive'
+
+  " Fairly vivid colorscheme support
+  Plug 'rafamadriz/neon'
 call plug#end()
 
 syntax enable
 
-" https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
-colorscheme jellybeans
+lua <<EOF
+vim.g.neon_style = "dark"
+vim.cmd[[colorscheme neon]]
+EOF
 
 " Matches jellybeans mostly
 let g:airline_theme='molokai'
